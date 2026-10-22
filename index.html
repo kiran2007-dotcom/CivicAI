@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CivicAI — AI-Powered Smart Citizen Platform</title>
+    <meta name="description" content="AI-powered civic complaint management connecting citizens, government officers, and field workers for rapid issue resolution." />
+    <meta property="og:title" content="CivicAI — AI-Powered Smart Citizen Platform" />
+    <meta property="og:description" content="AI-powered civic complaint management connecting citizens, government officers, and field workers for rapid issue resolution." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- PWA & Mobile Web App Meta -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="CivicAI" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root">
+      <!-- Initial loading state to prevent flash of blank white screen while bundle initializes -->
+      <div style="min-height: 100vh; background-color: #020617; display: flex; align-items: center; justify-content: center; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #94a3b8;">
+        <div style="text-align: center;">
+          <div style="width: 48px; height: 48px; margin: 0 auto 16px; border: 3px solid #0891b2; border-top-color: transparent; border-radius: 50%; animation: civicai-spin 1s linear infinite;"></div>
+          <div style="font-size: 16px; font-weight: 700; color: #f8fafc; letter-spacing: -0.01em;">CivicAI</div>
+          <div style="font-size: 13px; color: #64748b; margin-top: 4px;">Loading Smart Citizen Platform...</div>
+        </div>
+      </div>
+    </div>
+    <style>
+      @keyframes civicai-spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Clean up any stale service workers in preview iframe to avoid caching blank states
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for (var i = 0; i < registrations.length; i++) {
+            registrations[i].unregister();
+          }
+        }).catch(function() {});
+      }
+    </script>
+  </body>
+</html>
+

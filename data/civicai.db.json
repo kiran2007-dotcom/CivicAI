@@ -1,0 +1,404 @@
+{
+  "profiles": [
+    {
+      "id": "user-citizen-01",
+      "name": "Kiran Manjunath",
+      "email": "citizen@civicai.demo",
+      "role": "citizen",
+      "phone": "+91 98450 12345",
+      "ward": "Ward 112 - Domlur / MG Road",
+      "createdAt": "2026-09-20T16:22:59.982Z",
+      "updatedAt": "2026-09-20T16:22:59.983Z"
+    },
+    {
+      "id": "user-officer-01",
+      "name": "Inspector Rajesh Verma",
+      "email": "officer@civicai.demo",
+      "role": "officer",
+      "department": "Road Maintenance",
+      "phone": "+91 94480 67890",
+      "createdAt": "2026-08-21T16:22:59.983Z",
+      "updatedAt": "2026-08-21T16:22:59.983Z"
+    },
+    {
+      "id": "user-worker-01",
+      "name": "Ramesh Gowda",
+      "email": "worker@civicai.demo",
+      "role": "worker",
+      "department": "Road Maintenance",
+      "phone": "+91 99001 54321",
+      "createdAt": "2026-09-05T16:22:59.983Z",
+      "updatedAt": "2026-09-05T16:22:59.983Z"
+    },
+    {
+      "id": "user-admin-01",
+      "name": "Chief Commissioner Admin",
+      "email": "admin@civicai.demo",
+      "role": "admin",
+      "phone": "+91 80 2222 1111",
+      "department": "Municipal Corporation HQ",
+      "createdAt": "2026-07-22T16:22:59.983Z",
+      "updatedAt": "2026-07-22T16:22:59.983Z"
+    }
+  ],
+  "departments": [
+    {
+      "id": "dept-1",
+      "name": "Road Maintenance",
+      "headOfficer": "Rajesh Verma",
+      "phone": "+91 80 2297 5001",
+      "slaHours": 24
+    },
+    {
+      "id": "dept-2",
+      "name": "Sanitation Department",
+      "headOfficer": "Deepa Hegde",
+      "phone": "+91 80 2297 5002",
+      "slaHours": 12
+    },
+    {
+      "id": "dept-3",
+      "name": "Water Supply Department",
+      "headOfficer": "Siddaramaiah K",
+      "phone": "+91 80 2297 5003",
+      "slaHours": 8
+    },
+    {
+      "id": "dept-4",
+      "name": "Electrical Department",
+      "headOfficer": "Prakash Rao",
+      "phone": "+91 80 2297 5004",
+      "slaHours": 24
+    },
+    {
+      "id": "dept-5",
+      "name": "Drainage Department",
+      "headOfficer": "Manjula B",
+      "phone": "+91 80 2297 5005",
+      "slaHours": 36
+    },
+    {
+      "id": "dept-6",
+      "name": "Parks and Emergency Services",
+      "headOfficer": "Arun Kumar",
+      "phone": "+91 80 2297 5006",
+      "slaHours": 6
+    },
+    {
+      "id": "dept-7",
+      "name": "General Civic Services",
+      "headOfficer": "Naveen Swamy",
+      "phone": "+91 80 2297 5007",
+      "slaHours": 48
+    }
+  ],
+  "complaints": [
+    {
+      "id": "CIV-2026-9AB025",
+      "citizenId": "user-citizen-01",
+      "citizenName": "Kiran Manjunath",
+      "category": "Drainage",
+      "description": "Open drainage overflowing during rain near Domlur bridge",
+      "photoUrl": "data:image/svg+xml;utf8,<svg></svg>",
+      "location": {
+        "address": "Domlur Flyover, Ward 112, Bengaluru",
+        "lat": 12.9609,
+        "lng": 77.6387,
+        "zone": "Central Zone"
+      },
+      "priority": "High",
+      "department": "Drainage Department",
+      "status": "Assigned",
+      "createdAt": "2026-10-20T16:24:54.856Z",
+      "updatedAt": "2026-10-20T16:24:58.792Z",
+      "assignedWorkerId": "user-worker-01",
+      "assignedWorkerName": "Ramesh Gowda",
+      "assignedAt": "2026-10-20T16:24:58.791Z"
+    },
+    {
+      "id": "CIV-2026-RD4812",
+      "citizenId": "user-citizen-01",
+      "citizenName": "Kiran Manjunath",
+      "citizenEmail": "citizen@civicai.demo",
+      "category": "Pothole",
+      "description": "Dangerous pothole on middle lane of MG Road near Trinity Circle causing traffic slowdowns and bike falls.",
+      "photoUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\"><defs><linearGradient id=\"road\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\"><stop offset=\"0%\" stop-color=\"%23334155\"/><stop offset=\"100%\" stop-color=\"%231e293b\"/></linearGradient></defs><rect width=\"600\" height=\"400\" fill=\"url(%23road)\"/><ellipse cx=\"310\" cy=\"240\" rx=\"140\" ry=\"75\" fill=\"%230f172a\"/><text x=\"32\" y=\"44\" fill=\"%23ffffff\" font-family=\"sans-serif\" font-size=\"14\" font-weight=\"bold\">CIVIC PHOTO EVIDENCE: POTHOLE</text><text x=\"32\" y=\"375\" fill=\"%2394a3b8\" font-family=\"sans-serif\" font-size=\"13\">Bengaluru MG Road • 12.9738 N, 77.6186 E</text></svg>",
+      "location": {
+        "address": "MG Road, Near Trinity Circle, Ward 112, Bengaluru",
+        "lat": 12.9738,
+        "lng": 77.6186,
+        "landmark": "Near Trinity Metro Station Pillar 188",
+        "zone": "East Zone"
+      },
+      "aiAnalysis": {
+        "issueCategory": "Pothole",
+        "description": "Severe deep road crater posing significant vehicular hazard and potential accidents.",
+        "severity": "High",
+        "priority": "High",
+        "confidence": 94,
+        "recommendedDepartment": "Road Maintenance",
+        "reasoning": "Surface asphalt breakdown exceeds 15cm depth on heavy traffic arterial road.",
+        "estimatedResolutionHours": 24
+      },
+      "priority": "High",
+      "department": "Road Maintenance",
+      "status": "In Progress",
+      "assignedWorkerId": "user-worker-01",
+      "assignedWorkerName": "Ramesh Gowda",
+      "assignedAt": "2026-10-20T02:24:46.777Z",
+      "officerNotes": "High priority arterial road. Field team deployed with cold mix asphalt.",
+      "createdAt": "2026-10-19T04:24:46.777Z",
+      "updatedAt": "2026-10-20T04:24:46.777Z"
+    },
+    {
+      "id": "CIV-2026-SN1904",
+      "citizenId": "user-citizen-01",
+      "citizenName": "Kiran Manjunath",
+      "citizenEmail": "citizen@civicai.demo",
+      "category": "Garbage",
+      "description": "Excessive garbage pileup around community bin overflowing onto pedestrian footpath for 3 days.",
+      "photoUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\"><rect width=\"600\" height=\"400\" fill=\"%23334155\"/><rect x=\"180\" y=\"100\" width=\"240\" height=\"180\" rx=\"12\" fill=\"%231e3a5f\"/><text x=\"32\" y=\"44\" fill=\"%23ffffff\" font-family=\"sans-serif\" font-size=\"14\" font-weight=\"bold\">CIVIC PHOTO EVIDENCE: GARBAGE PILEUP</text><text x=\"32\" y=\"375\" fill=\"%23cbd5e1\" font-family=\"sans-serif\" font-size=\"13\">Indiranagar 100ft Road • 12.9716 N, 77.6412 E</text></svg>",
+      "location": {
+        "address": "100 Feet Road, 12th Main Junction, Indiranagar, Bengaluru",
+        "lat": 12.9716,
+        "lng": 77.6412,
+        "landmark": "Near 12th Main Junction",
+        "zone": "East Zone"
+      },
+      "aiAnalysis": {
+        "issueCategory": "Garbage",
+        "description": "Solid waste buildup blocking pedestrian walkway with foul odor.",
+        "severity": "Medium",
+        "priority": "Medium",
+        "confidence": 91,
+        "recommendedDepartment": "Sanitation Department",
+        "reasoning": "Secondary collection container overflow. Requires tipper truck dispatch.",
+        "estimatedResolutionHours": 12
+      },
+      "priority": "Medium",
+      "department": "Sanitation Department",
+      "status": "Resolved",
+      "assignedWorkerId": "user-worker-02",
+      "assignedWorkerName": "Anand Kumar",
+      "assignedAt": "2026-10-19T00:24:46.777Z",
+      "completionEvidence": {
+        "photoUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><circle cx=\"300\" cy=\"180\" r=\"32\" fill=\"%2322c55e\"/><text x=\"180\" y=\"250\" fill=\"%234ade80\" font-family=\"sans-serif\" font-size=\"20\" font-weight=\"bold\">WORK SUCCESSFULLY COMPLETED</text></svg>",
+        "notes": "Cleared 1.8 tons of accumulated waste, disinfected the pavement with bleaching powder.",
+        "completedAt": "2026-10-19T22:24:46.777Z",
+        "workerName": "Anand Kumar"
+      },
+      "resolvedAt": "2026-10-20T00:24:46.777Z",
+      "feedback": {
+        "rating": 5,
+        "comment": "Very impressed with how fast the sanitation team cleared the whole walkway! Thank you CivicAI.",
+        "submittedAt": "2026-10-20T06:24:46.777Z",
+        "citizenName": "Kiran Manjunath"
+      },
+      "createdAt": "2026-10-18T12:24:46.777Z",
+      "updatedAt": "2026-10-20T00:24:46.777Z"
+    },
+    {
+      "id": "CIV-2026-WL8821",
+      "citizenId": "user-citizen-02",
+      "citizenName": "Aarav Sharma",
+      "citizenEmail": "aarav@citizen.test",
+      "category": "Water Leakage",
+      "description": "Drinking water distribution line leaking heavily near BDA complex, thousands of liters lost.",
+      "photoUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\"><rect width=\"600\" height=\"400\" fill=\"%231e293b\"/><ellipse cx=\"320\" cy=\"225\" rx=\"160\" ry=\"80\" fill=\"%230284c7\" opacity=\"0.8\"/><text x=\"32\" y=\"44\" fill=\"%23ffffff\" font-family=\"sans-serif\" font-size=\"14\" font-weight=\"bold\">CIVIC PHOTO EVIDENCE: WATER LEAK</text></svg>",
+      "location": {
+        "address": "80 Feet Road, 4th Block, Koramangala, Bengaluru",
+        "lat": 12.9344,
+        "lng": 77.6271,
+        "landmark": "Adjacent to BDA Complex",
+        "zone": "South Zone"
+      },
+      "aiAnalysis": {
+        "issueCategory": "Water Leakage",
+        "description": "Pressurized water main fracture causing localized waterlogging.",
+        "severity": "Critical",
+        "priority": "Urgent",
+        "confidence": 96,
+        "recommendedDepartment": "Water Supply Department",
+        "reasoning": "Critical potable water loss and erosion hazard under road foundation.",
+        "estimatedResolutionHours": 8
+      },
+      "priority": "Urgent",
+      "department": "Water Supply Department",
+      "status": "Under Review",
+      "officerNotes": "High priority urgent leakage. Awaiting valve isolation crew.",
+      "createdAt": "2026-10-20T10:24:46.777Z",
+      "updatedAt": "2026-10-20T14:24:46.777Z"
+    },
+    {
+      "id": "CIV-2026-SL3309",
+      "citizenId": "user-citizen-01",
+      "citizenName": "Kiran Manjunath",
+      "citizenEmail": "citizen@civicai.demo",
+      "category": "Broken Streetlight",
+      "description": "Three consecutive street lights not functioning causing severe dark spots and safety concern.",
+      "photoUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\"><rect width=\"600\" height=\"400\" fill=\"%23090d16\"/><line x1=\"200\" y1=\"380\" x2=\"200\" y2=\"100\" stroke=\"%23475569\" stroke-width=\"14\"/><text x=\"32\" y=\"44\" fill=\"%23ffffff\" font-family=\"sans-serif\" font-size=\"14\" font-weight=\"bold\">CIVIC PHOTO EVIDENCE: BROKEN STREETLIGHT</text></svg>",
+      "location": {
+        "address": "ITPL Main Road, Hope Farm Junction, Whitefield, Bengaluru",
+        "lat": 12.9698,
+        "lng": 77.7499,
+        "landmark": "Hope Farm Signal",
+        "zone": "East Zone"
+      },
+      "aiAnalysis": {
+        "issueCategory": "Broken Streetlight",
+        "description": "Feeder pillar circuit fault or blown sodium vapor bulbs.",
+        "severity": "Medium",
+        "priority": "Medium",
+        "confidence": 92,
+        "recommendedDepartment": "Electrical Department",
+        "reasoning": "Pedestrian safety risk at night across major bus stop transit zone.",
+        "estimatedResolutionHours": 24
+      },
+      "priority": "Medium",
+      "department": "Electrical Department",
+      "status": "Awaiting Verification",
+      "assignedWorkerId": "user-worker-04",
+      "assignedWorkerName": "Praveen Rao",
+      "assignedAt": "2026-10-19T22:24:46.777Z",
+      "completionEvidence": {
+        "photoUrl": "data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"600\" height=\"400\" viewBox=\"0 0 600 400\"><rect width=\"600\" height=\"400\" fill=\"%230f172a\"/><circle cx=\"300\" cy=\"180\" r=\"32\" fill=\"%2322c55e\"/><text x=\"180\" y=\"250\" fill=\"%234ade80\" font-family=\"sans-serif\" font-size=\"20\" font-weight=\"bold\">NEW LED LUMINAIRES INSTALLED</text></svg>",
+        "notes": "Replaced 3 faulty LED driver units and restored power line from pillar box.",
+        "completedAt": "2026-10-20T14:24:46.777Z",
+        "workerName": "Praveen Rao"
+      },
+      "createdAt": "2026-10-19T12:24:46.777Z",
+      "updatedAt": "2026-10-20T14:24:46.777Z"
+    }
+  ],
+  "timeline": [
+    {
+      "id": "evt-1792513494856-t9a1",
+      "complaintId": "CIV-2026-9AB025",
+      "status": "Submitted",
+      "title": "Complaint Registered",
+      "description": "Civic issue registered with ID #CIV-2026-9AB025. Priority: High.",
+      "timestamp": "2026-10-20T16:24:54.856Z",
+      "actorName": "Kiran Manjunath",
+      "actorRole": "citizen"
+    },
+    {
+      "id": "evt-1792513498792-j44z",
+      "complaintId": "CIV-2026-9AB025",
+      "status": "Assigned",
+      "title": "Status updated to Assigned",
+      "description": "Action recorded by Inspector Rajesh Verma (OFFICER).",
+      "timestamp": "2026-10-20T16:24:58.792Z",
+      "actorName": "Inspector Rajesh Verma",
+      "actorRole": "officer"
+    }
+  ],
+  "notifications": [
+    {
+      "userId": "user-citizen-01",
+      "userRole": "citizen",
+      "complaintId": "CIV-2026-9AB025",
+      "title": "Complaint #CIV-2026-9AB025 Milestone: Assigned",
+      "message": "Your ticket has transitioned to Assigned.",
+      "type": "info",
+      "id": "notif-1792513498792-hsi8",
+      "createdAt": "2026-10-20T16:24:58.792Z",
+      "isRead": false
+    },
+    {
+      "userId": "user-officer-01",
+      "userRole": "officer",
+      "complaintId": "CIV-2026-9AB025",
+      "title": "New Incident Report: #CIV-2026-9AB025",
+      "message": "New High priority Drainage reported at Domlur Flyover, Ward 112, Bengaluru.",
+      "type": "info",
+      "id": "notif-1792513494857-fpzg",
+      "createdAt": "2026-10-20T16:24:54.857Z",
+      "isRead": false
+    },
+    {
+      "userId": "user-citizen-01",
+      "userRole": "citizen",
+      "complaintId": "CIV-2026-9AB025",
+      "title": "Complaint Registered Successfully",
+      "message": "Your report #CIV-2026-9AB025 (Drainage) has been filed and routed to Drainage Department.",
+      "type": "success",
+      "id": "notif-1792513494856-dtfj",
+      "createdAt": "2026-10-20T16:24:54.856Z",
+      "isRead": false
+    },
+    {
+      "id": "notif-1",
+      "userId": "user-citizen-01",
+      "userRole": "citizen",
+      "complaintId": "CIV-2026-RD4812",
+      "title": "Repair In Progress",
+      "message": "Field technician Ramesh Gowda has commenced work on your reported Pothole at MG Road.",
+      "type": "info",
+      "isRead": false,
+      "createdAt": "2026-10-20T04:24:46.777Z"
+    },
+    {
+      "id": "notif-2",
+      "userId": "user-citizen-01",
+      "userRole": "citizen",
+      "complaintId": "CIV-2026-SN1904",
+      "title": "Issue Resolved! Please Rate",
+      "message": "Sanitation team cleared the garbage at Indiranagar 100ft Road. Thank you for making Bengaluru cleaner.",
+      "type": "success",
+      "isRead": true,
+      "createdAt": "2026-10-20T00:24:46.777Z"
+    },
+    {
+      "id": "notif-3",
+      "userId": "user-worker-01",
+      "userRole": "worker",
+      "complaintId": "CIV-2026-RD4812",
+      "title": "New Work Assignment",
+      "message": "You have been assigned to repair high-priority pothole on MG Road (CIV-2026-RD4812).",
+      "type": "alert",
+      "isRead": false,
+      "createdAt": "2026-10-20T02:24:46.777Z"
+    },
+    {
+      "id": "notif-4",
+      "userId": "user-officer-01",
+      "userRole": "officer",
+      "complaintId": "CIV-2026-WL8821",
+      "title": "Urgent Issue Escalation",
+      "message": "Critical Water Leakage reported in Koramangala requires officer review.",
+      "type": "alert",
+      "isRead": false,
+      "createdAt": "2026-10-20T10:24:46.777Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "userId": "anonymous",
+      "userRole": "officer",
+      "action": "COMPLAINT_UPDATED",
+      "entityType": "complaint",
+      "entityId": "CIV-2026-9AB025",
+      "details": {
+        "status": "Assigned",
+        "assignedWorkerId": "user-worker-01",
+        "assignedWorkerName": "Ramesh Gowda",
+        "assignedAt": "2026-10-20T16:24:58.791Z"
+      },
+      "id": "audit-1792513498792-eujz",
+      "timestamp": "2026-10-20T16:24:58.792Z"
+    },
+    {
+      "userId": "user-citizen-01",
+      "userRole": "citizen",
+      "action": "COMPLAINT_CREATED",
+      "entityType": "complaint",
+      "entityId": "CIV-2026-9AB025",
+      "details": {
+        "category": "Drainage",
+        "priority": "High"
+      },
+      "id": "audit-1792513494857-m0xo",
+      "timestamp": "2026-10-20T16:24:54.857Z"
+    }
+  ]
+}

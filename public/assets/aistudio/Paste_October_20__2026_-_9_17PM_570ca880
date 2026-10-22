@@ -1,0 +1,844 @@
+# MASTER BUILD PROMPT: CIVICAI
+## Complete Functional AI-Powered Smart Citizen Platform
+
+Act as a senior full-stack engineer, AI engineer, UI/UX designer, database architect, and QA engineer.
+
+Build a complete, interactive, functional hackathon web application named:
+
+CivicAI — AI-Powered Smart Citizen Platform
+
+Tagline: Smarter Cities. Better Lives.
+
+This project is for a national-level hackathon under Smart Cities & Civic Tech / Open Innovation.
+
+IMPORTANT: I need a working application, not a static design, landing-page-only project, or clickable mockup. Every important button, form, dashboard, filter, and workflow must actually work.
+
+Do not merely describe the code. Create the application files, run the application if your environment supports execution, test the workflows, fix errors, and provide instructions for running and deploying it.
+
+Do not claim that a feature works unless it has been implemented and tested.
+
+==================================================
+1. THE PRODUCT
+==================================================
+
+CivicAI connects citizens, government officers, and field workers through one intelligent civic complaint management platform.
+
+Citizens can report:
+- Potholes and damaged roads
+- Garbage accumulation and illegal dumping
+- Water leakage
+- Broken streetlights
+- Drainage and sewage issues
+- Fallen trees
+- Damaged public infrastructure
+- Other civic problems
+
+The system analyzes complaints, recommends categories and responsible departments, assigns priority, tracks progress, and provides transparency to citizens.
+
+Primary workflow:
+
+Citizen reports issue
+→ AI analyzes the photo and description
+→ Issue category and severity are determined
+→ Department is recommended
+→ Complaint ID is generated
+→ Officer reviews the complaint
+→ Worker is assigned
+→ Worker updates progress
+→ Complaint is resolved
+→ Citizen receives an update and provides feedback.
+
+This entire workflow must work.
+
+==================================================
+2. DEVELOPMENT RULES
+==================================================
+
+First inspect the capabilities of the coding environment.
+
+Use its existing framework when one is already configured and functional. Otherwise prefer:
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- A maintained charting library
+- Lucide icons
+
+For persistent shared data, prefer a real backend and database when the environment supports them reliably.
+
+Recommended production-capable option:
+- Supabase Auth
+- Supabase PostgreSQL
+- Supabase Storage
+- Row Level Security
+
+If backend credentials or services are unavailable, implement a clearly documented local demonstration mode using IndexedDB or localStorage.
+
+Do not create a fake backend.
+
+Create a clean architecture with reusable components and services.
+
+Do not replace an existing working application without inspecting it first.
+
+Never delete existing working functionality simply to simplify the implementation.
+
+==================================================
+3. DESIGN REQUIREMENTS
+==================================================
+
+Create a polished, professional smart-city product that looks suitable for a startup demonstration.
+
+Visual style:
+- Deep navy and royal blue
+- Cyan accents
+- White and light-gray surfaces
+- Optional dark mode
+- Subtle gradients
+- Clean typography
+- Consistent spacing
+- Rounded cards
+- Restrained glassmorphism
+- Smooth, lightweight transitions
+- Professional icons
+- Accessible contrast
+- Responsive mobile layouts
+
+The website must work on desktop, tablet, and mobile.
+
+Create a premium landing page with:
+- CivicAI branding
+- Hero section
+- Clear explanation of the problem
+- How it works
+- AI issue detection feature
+- Citizen and government benefits
+- Product screenshots or real application UI
+- Call-to-action buttons
+- Footer
+
+Avoid excessive animations and unnecessary visual clutter.
+
+The application interface must be more important than decorative graphics.
+
+==================================================
+4. NAVIGATION AND APPLICATION PAGES
+==================================================
+
+Create the following pages:
+
+1. Landing Page
+2. Login and Registration
+3. Citizen Dashboard
+4. Report Civic Issue
+5. Complaint Details and Tracking
+6. My Complaints
+7. Notifications
+8. Citizen Profile
+9. Government Officer Dashboard
+10. Complaint Management
+11. Complaint Assignment
+12. Field Worker Dashboard
+13. Complaint Resolution
+14. Analytics
+15. Settings and Demo Information
+
+Use role-based navigation. Users must only see actions allowed for their role.
+
+Every route must render correctly. Refreshing a page must not break navigation or lose stored data.
+
+==================================================
+5. AUTHENTICATION AND ROLES
+==================================================
+
+Implement three roles:
+
+Citizen
+Government Officer
+Field Worker
+
+If a real authentication backend is configured, use it with proper session handling and access controls.
+
+For local demo mode, provide clearly labelled demo accounts:
+
+Citizen:
+citizen@civicai.demo
+Password: Citizen123!
+
+Officer:
+officer@civicai.demo
+Password: Officer123!
+
+Worker:
+worker@civicai.demo
+Password: Worker123!
+
+Demo credentials are for demonstration only. Do not present them as production security.
+
+The demo login must work. Logout must work. The correct dashboard must open for each role.
+
+Validate forms and show useful error messages.
+
+Do not rely on hiding buttons as the only security measure. Protect privileged backend operations with authorization when a backend is available.
+
+==================================================
+6. CITIZEN DASHBOARD
+==================================================
+
+Display real values calculated from stored complaints:
+
+- Total complaints
+- Submitted or pending
+- In progress
+- Resolved
+- High-priority issues
+
+Include:
+- Recent complaints
+- Complaint status
+- Latest notifications
+- Quick report button
+- Complaint tracking shortcuts
+- Feedback requests for resolved complaints
+
+Every statistic must be calculated from the actual data store.
+
+Never hard-code dashboard numbers that pretend to be live data.
+
+==================================================
+7. REPORT CIVIC ISSUE
+==================================================
+
+Build a complete complaint submission form.
+
+Required fields:
+- Issue description
+- Photo upload
+- Issue category
+- Location
+- Confirmation before submission
+
+Optional fields:
+- Video evidence
+- Additional notes
+
+Allow users to preview uploaded images before submission.
+
+Validate file types and file sizes.
+
+Provide a category selector with:
+Pothole, Road Damage, Garbage, Water Leakage, Broken Streetlight, Drainage, Fallen Tree, Other.
+
+Include a "Use My Location" button.
+
+Use browser geolocation only after the user grants permission. Handle denied permissions and unavailable GPS. Allow manual location entry.
+
+If a real map service is configured, display the location on an interactive map. Otherwise provide a usable location field and a clearly labelled map-unavailable fallback.
+
+Do not invent GPS coordinates or pretend that an address has been verified.
+
+The form must not lose its information when the user navigates accidentally if it can safely preserve a draft.
+
+==================================================
+8. AI CIVIC ISSUE ANALYSIS
+==================================================
+
+This is a core feature.
+
+Create an AI service layer that supports genuine image-and-text analysis through a server-side AI API.
+
+Use a supported vision-capable model and keep its API key in a server-side environment variable.
+
+Never expose secret API keys in frontend code or public repositories.
+
+The analysis must consider:
+- Uploaded image
+- Citizen's description
+- Selected category, if provided
+- Location text, if provided
+
+Ask the AI to return structured data:
+
+{
+  "issueCategory": "Pothole",
+  "description": "Visible road damage",
+  "severity": "High",
+  "priority": "High",
+  "confidence": 92,
+  "recommendedDepartment": "Road Maintenance",
+  "reasoning": "Visible damage may affect road safety",
+  "estimatedResolutionHours": 24
+}
+
+These values are examples of the response format, not predetermined results.
+
+Validate all model output against a schema.
+
+Allowed severity:
+Low, Medium, High, Critical.
+
+Priority and department must be derived from the analysis and configurable business rules.
+
+Do not treat AI output as an official government decision. An authorized officer must be able to review and correct the recommendation.
+
+AI ANALYSIS USER EXPERIENCE:
+
+1. User uploads a photo.
+2. User clicks "Analyze with AI".
+3. Show a loading indicator and analysis stages.
+4. Call the configured vision API.
+5. Parse and validate the response.
+6. Display the detected category, confidence, severity, priority, and recommended department.
+7. Allow the citizen to review the result.
+8. Allow correction of an incorrect category.
+9. Allow complaint submission.
+
+Do not invent confidence values or display fabricated AI results as real model predictions.
+
+If no API key is configured, offer a clearly labelled "Demo AI Mode".
+
+Demo mode must:
+- Use explicit sample images and sample scenarios.
+- Produce deterministic results for those samples.
+- Explain that results are simulated.
+- Never claim that arbitrary uploaded photos were analyzed by a real model.
+- Allow the full complaint workflow to be demonstrated.
+
+Provide separate buttons for:
+- Try Pothole Sample
+- Try Garbage Sample
+- Try Water Leakage Sample
+- Try Broken Streetlight Sample
+
+These buttons must load actual bundled sample assets or valid sample data.
+
+If AI analysis fails, show an error and allow retry or demo mode. Do not silently substitute fabricated results.
+
+==================================================
+9. DEPARTMENT ROUTING AND PRIORITY
+==================================================
+
+Create configurable routing rules:
+
+Pothole / Road Damage → Road Maintenance
+Garbage / Illegal Dumping → Sanitation Department
+Water Leakage → Water Supply Department
+Broken Streetlight → Electrical Department
+Drainage / Sewage → Drainage Department
+Fallen Tree → Parks and Emergency Services
+Other → General Civic Services
+
+Use severity, safety impact, and the configured rules to recommend priority.
+
+Critical safety situations should be flagged for urgent human review.
+
+Do not promise a guaranteed resolution time. Any displayed estimate must be labelled as an estimate, not an official commitment.
+
+Officers can change the assigned department and priority and must have their changes recorded in the complaint timeline.
+
+==================================================
+10. COMPLAINT CREATION
+==================================================
+
+When the citizen confirms submission:
+
+- Generate a unique complaint ID.
+- Save the complaint in the persistent data store.
+- Store the citizen's user ID.
+- Store category and description.
+- Store the uploaded image or evidence reference.
+- Store location.
+- Store the AI result and whether it was real AI or demo mode.
+- Store priority and recommended department.
+- Store current status.
+- Store creation and update timestamps.
+- Store assignment information.
+- Store timeline events.
+- Store notifications and feedback references.
+
+Use an ID such as CIV-2026-0001 only as a display example. Generate collision-resistant identifiers in actual code.
+
+Initial status:
+Submitted.
+
+After successful persistence, display a confirmation page with:
+- Complaint ID
+- Issue category
+- Priority
+- Location
+- Department recommendation
+- Status
+- Tracking link
+
+The complaint must still exist after page refresh and login.
+
+Do not display success before the save operation succeeds.
+
+==================================================
+11. COMPLAINT STATUS AND TIMELINE
+==================================================
+
+Implement a real status workflow:
+
+Submitted
+→ Under Review
+→ Verified
+→ Assigned
+→ In Progress
+→ Resolved
+
+Allow Rejected or Duplicate only with an authorized officer's reason.
+
+Every valid transition must:
+- Update the stored complaint.
+- Record who performed the action.
+- Record the timestamp.
+- Add a timeline entry.
+- Generate the appropriate citizen notification.
+- Update every dashboard that reads the complaint.
+
+Prevent invalid transitions.
+
+Show the timeline in the citizen's complaint detail page.
+
+Do not simulate real-time synchronization if the implementation only refreshes on page load. If using polling or database subscriptions, implement them and document their behavior.
+
+==================================================
+12. GOVERNMENT OFFICER DASHBOARD
+==================================================
+
+Create an operational dashboard with:
+- Total complaints
+- Unreviewed complaints
+- High-priority complaints
+- Assigned complaints
+- In-progress complaints
+- Resolved complaints
+
+Include:
+- Search by complaint ID
+- Filter by category
+- Filter by priority
+- Filter by status
+- Filter by department
+- Filter by date
+- Sort by date or priority
+- Complaint detail view
+- Evidence preview
+
+Officer actions:
+- Review complaint
+- Verify or reject with a reason
+- Correct category
+- Change priority
+- Assign department
+- Assign field worker
+- Add an internal note
+- Update status
+- Mark resolved after verifying completion evidence
+
+All actions must update the same persistent complaint record used by the citizen and worker dashboards.
+
+Do not create a separate set of fake officer complaints.
+
+==================================================
+13. FIELD WORKER DASHBOARD
+==================================================
+
+Show only tasks assigned to the authenticated worker.
+
+Each task should display:
+- Complaint ID
+- Issue category
+- Description
+- Photo
+- Location
+- Priority
+- Assignment details
+- Current status
+
+Worker actions:
+- Accept task
+- Start work
+- Add progress note
+- Upload progress evidence
+- Submit completion evidence
+- Mark work completed
+
+Require completion notes or evidence before final completion where appropriate.
+
+A worker must not be able to modify an unassigned complaint.
+
+When a task is completed, update the complaint and notify the citizen. If officer verification is required, use a separate "Awaiting Verification" status instead of claiming final resolution.
+
+==================================================
+14. NOTIFICATIONS
+==================================================
+
+Create a persistent in-app notification system.
+
+Examples:
+- Complaint successfully registered.
+- Complaint is under review.
+- Department assigned.
+- Field worker assigned.
+- Work has started.
+- Completion evidence submitted.
+- Complaint resolved.
+- Feedback requested.
+
+Notifications must reference the actual complaint ID.
+
+Provide:
+- Unread count
+- Mark as read
+- Mark all as read
+- Link to the relevant complaint
+
+Only claim email, SMS, push, or WhatsApp delivery if that integration has actually been configured and tested.
+
+==================================================
+15. CIVICAI CHATBOT
+==================================================
+
+Create a working assistant named CivicAI Assistant.
+
+It should support:
+- Guiding citizens through reporting
+- Asking for issue category and location
+- Explaining the reporting workflow
+- Helping locate an existing complaint by ID
+- Explaining complaint statuses
+- Answering common civic-service questions
+- Recommending the appropriate department
+
+If a language model API is configured, use it through a server-side endpoint.
+
+Give the assistant a clear system instruction to avoid inventing official government policies, contact numbers, complaint statuses, or service guarantees.
+
+When users ask for complaint status, retrieve the actual stored complaint rather than asking the model to guess.
+
+When no AI service is available, use a functional rule-based assistant with guided questions and clear limitations.
+
+Provide quick-reply options:
+- Report a pothole
+- Report garbage
+- Report water leakage
+- Track my complaint
+- Explain my complaint status
+
+The chatbot must have meaningful working behavior, not just a decorative chat window.
+
+==================================================
+16. ANALYTICS AND VISUALIZATION
+==================================================
+
+Create charts calculated from the actual complaint dataset:
+
+- Complaints by category
+- Complaints by status
+- Priority distribution
+- Complaints over time
+- Department workload
+- Resolution rate
+- Citizen satisfaction
+
+Handle empty data gracefully.
+
+Calculate the resolution rate using a clearly defined formula.
+
+Calculate average resolution time only from records with valid submission and resolution timestamps.
+
+Clearly label demo data.
+
+Do not display invented live statistics or claim access to actual municipal systems.
+
+==================================================
+17. MAP AND LOCATION VISUALIZATION
+==================================================
+
+When a map provider is configured, show complaint markers using actual stored coordinates.
+
+Marker information:
+- Complaint ID
+- Category
+- Priority
+- Status
+- Department
+
+Provide category and status filters.
+
+Do not fabricate geocoded locations.
+
+If no map provider is configured, show a location list or clearly labelled geographic demo view. Do not claim it is a live municipal map.
+
+==================================================
+18. FEEDBACK
+==================================================
+
+After resolution, allow the citizen who submitted the complaint to:
+- Rate the experience from one to five stars.
+- Leave a comment.
+- Submit feedback.
+
+Prevent duplicate feedback submissions unless editing is explicitly supported.
+
+Store feedback persistently.
+
+Calculate citizen satisfaction from actual feedback records and show the sample size.
+
+Do not display a satisfaction percentage when there are no ratings.
+
+==================================================
+19. DATA ARCHITECTURE
+==================================================
+
+Use one source of truth for complaints.
+
+Recommended entities:
+- Users
+- Complaints
+- ComplaintTimeline
+- Departments
+- WorkerAssignments
+- Notifications
+- Feedback
+- Evidence
+
+Enforce access permissions and data validation.
+
+For local demo mode:
+- Persist data across page refresh.
+- Handle missing or corrupted local storage gracefully.
+- Provide a reset-demo-data action with confirmation.
+- Do not overwrite existing records on every render.
+- Keep the citizen, officer, and worker dashboards synchronized within the same browser.
+
+Important limitation:
+Local storage does not synchronize data across different devices or browsers. If cross-device synchronization is required, configure a real backend.
+
+For a backend implementation:
+- Use server-side authorization.
+- Configure row-level access rules.
+- Validate uploaded file types and sizes.
+- Store files securely.
+- Do not expose private complaint details to unrelated users.
+- Use environment variables for secrets.
+- Include database schema and setup instructions.
+
+==================================================
+20. HACKATHON DEMO MODE
+==================================================
+
+Create a visible "Hackathon Demo Mode" indicator whenever demo data or simulated AI is being used.
+
+Include a button:
+"Load Demo Scenario"
+
+When activated with confirmation:
+- Create one sample pothole complaint in Bengaluru.
+- Use an explicitly labelled sample image.
+- Assign High priority.
+- Recommend Road Maintenance.
+- Create a unique complaint ID.
+- Make the record visible in the citizen and officer dashboards.
+- Allow the officer to assign the worker.
+- Allow the worker to accept and start the task.
+- Allow the worker to submit completion evidence.
+- Allow final resolution.
+- Notify the citizen.
+- Allow feedback.
+- Update analytics.
+
+Do not silently create duplicate demo complaints every time the button is clicked.
+
+Use a deterministic sample scenario, but generate a new unique complaint ID when a new scenario is created.
+
+Provide an optional demo reset function with a confirmation dialog.
+
+==================================================
+21. FUNCTIONALITY AND USER EXPERIENCE
+==================================================
+
+Every visible control must work.
+
+Required:
+- Buttons perform their stated actions.
+- Navigation links open the correct pages.
+- Forms validate input.
+- Uploads show previews.
+- Loading states appear during asynchronous work.
+- Errors are displayed clearly.
+- Successful operations show confirmation.
+- Search and filters affect actual data.
+- Status changes update the complaint timeline.
+- Dashboard totals update from stored data.
+- Refreshing a page does not erase persisted complaints.
+- Empty states are informative.
+- Dialogs can be closed.
+- Mobile layouts remain usable.
+- Keyboard navigation and accessible labels are provided.
+
+Do not use placeholder buttons, fake links, lorem ipsum, random numbers, or static dashboards pretending to be operational.
+
+==================================================
+22. TESTING REQUIREMENTS
+==================================================
+
+Create and run tests where the environment supports execution.
+
+At minimum verify:
+
+TEST 1:
+A citizen can log in.
+
+TEST 2:
+A citizen can upload a sample image and analyze it in the selected mode.
+
+TEST 3:
+A citizen can submit a complaint and receive a unique ID.
+
+TEST 4:
+The complaint persists after a page refresh.
+
+TEST 5:
+The officer can see the exact complaint created by the citizen.
+
+TEST 6:
+The officer can assign a worker.
+
+TEST 7:
+The worker can see the assigned task.
+
+TEST 8:
+The worker can update the status and submit completion evidence.
+
+TEST 9:
+The citizen can see the updated timeline and notification.
+
+TEST 10:
+The citizen can submit feedback after resolution.
+
+TEST 11:
+Dashboard metrics and charts update from the same complaint records.
+
+TEST 12:
+Unauthorized roles cannot perform privileged actions.
+
+TEST 13:
+AI API failure is handled without losing the complaint draft.
+
+TEST 14:
+Invalid form submissions are rejected with useful messages.
+
+TEST 15:
+The website builds successfully and major pages load without runtime errors.
+
+Fix all failures you can reproduce.
+
+Never claim a test passed unless you actually ran it.
+
+If the environment cannot run tests, clearly state which checks remain unverified and provide manual test steps.
+
+==================================================
+23. DEPLOYMENT AND DOCUMENTATION
+==================================================
+
+Provide:
+- Complete source code
+- Clear project folder structure
+- README
+- Installation instructions
+- Run commands
+- Build commands
+- Environment variable example file
+- Database schema and setup instructions, if applicable
+- Demo credentials
+- AI configuration instructions
+- Deployment instructions
+- Known limitations
+- Testing results
+
+Do not include actual API keys in the repository.
+
+Make sure the application can be started by following the README.
+
+==================================================
+24. IMPLEMENTATION ORDER
+==================================================
+
+Work in this order:
+
+Phase 1: Inspect environment and create the application foundation.
+
+Phase 2: Build navigation, authentication, and role-based dashboards.
+
+Phase 3: Build the shared data model and persistent storage.
+
+Phase 4: Build the report issue form and complaint creation.
+
+Phase 5: Implement the AI service and honest demo mode.
+
+Phase 6: Build officer complaint management and assignment.
+
+Phase 7: Build worker task management and resolution.
+
+Phase 8: Implement notifications, timeline, and feedback.
+
+Phase 9: Build analytics and optional map integration.
+
+Phase 10: Add polish, accessibility, security, and responsive layouts.
+
+Phase 11: Run tests, fix bugs, and prepare deployment.
+
+Do not move on while a core workflow is broken. Preserve working code between phases.
+
+==================================================
+25. ACCEPTANCE CRITERIA
+==================================================
+
+The project is complete only when:
+
+1. The application launches.
+2. Each demo role can log in.
+3. Citizens can create complaints.
+4. AI analysis works through a configured API or a clearly labelled demo mode.
+5. Complaints persist.
+6. Officers can manage and assign the actual complaints.
+7. Workers can process their assigned tasks.
+8. Citizens can see status changes and notifications.
+9. Feedback can be submitted.
+10. Analytics derive from stored data.
+11. Important buttons and forms work.
+12. The interface is responsive.
+13. Setup instructions are complete.
+14. Test results are reported honestly.
+
+If a feature depends on missing credentials or external services, implement a working fallback where possible and document the limitation.
+
+Do not claim the prototype is production-ready. Build a reliable, demonstrable hackathon application with a clear path to production.
+
+==================================================
+START NOW
+==================================================
+
+First inspect your environment and determine which files, frameworks, execution tools, and backend services are available.
+
+Then build the application in the phases above.
+
+Do not return only a plan, a design description, or a collection of code snippets.
+
+Create the actual files, run and test the application if possible, and provide the exact URL or command to open it.
+
+If a decision or credential is missing, use a safe, documented default rather than stopping unnecessarily.
+
+At the end, report:
+- What was implemented
+- What was actually tested
+- What passed or failed
+- What requires external API credentials
+- How to launch the website
+- How to demonstrate the citizen-to-resolution workflow
+
+Prioritize a fully working core workflow over adding more decorative features.
