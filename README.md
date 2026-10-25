@@ -41,33 +41,6 @@ CivicAI is a full-stack, multimodal complaint management platform that connects 
 
 ---
 
-## 🚀 How to Run & Deploy
-
-### Local Development
-```bash
-# Install dependencies
-npm install
-
-# Start full-stack dev server (Express + Vite on port 3000)
-npm run dev
-```
-
-### Production Build
-```bash
-# Build frontend assets
-npm run build
-
-# Start production server
-npm run start
-```
-
-### Environment Variables (`.env`)
-```env
-# Optional: Injected automatically by Google AI Studio
-GEMINI_API_KEY="YOUR_GEMINI_API_KEY"
-PORT=3000
-```
-*If `GEMINI_API_KEY` is not present, CivicAI automatically operates in **Honest Demo AI Mode** with deterministic sample scenarios.*
 
 ---
 
