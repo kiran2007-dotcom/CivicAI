@@ -126,7 +126,7 @@ export const ComplaintResolutionPage: React.FC = () => {
             </h1>
           </div>
           <span
-            className={`px-3 py-1 rounded-full text-xs font-bold self-start sm:self-auto ${
+            className={`px-3 py-1 rounded-md text-xs font-bold self-start sm:self-auto ${
               complaint.status === 'In Progress'
                 ? 'bg-cyan-950 text-cyan-300 border border-cyan-800'
                 : 'bg-amber-950 text-amber-300 border border-amber-800'
@@ -214,7 +214,7 @@ export const ComplaintResolutionPage: React.FC = () => {
                     : 'bg-slate-800 text-slate-400'
                 }`}
               >
-                Use Certified Proof Sample
+                Use Verified Real Photo Proof
               </button>
             </div>
           </div>
@@ -224,8 +224,9 @@ export const ComplaintResolutionPage: React.FC = () => {
             <div className="rounded-2xl overflow-hidden border border-emerald-500/40 bg-slate-950 max-h-56">
               <img
                 src={evidencePhoto}
-                alt="Completion Proof Preview"
+                alt="Real photo evidence of completed municipal road repair"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
 

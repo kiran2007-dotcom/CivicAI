@@ -73,6 +73,7 @@ export const ReportIssuePage: React.FC = () => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   // Restore draft if saved
   useEffect(() => {
@@ -128,6 +129,31 @@ export const ReportIssuePage: React.FC = () => {
       setAiResult(null); // Reset previous analysis
     };
     reader.readAsDataURL(file);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      if (!file.type.startsWith('image/')) {
+        setFormError('Please upload an image file (JPEG, PNG, WebP).');
+        return;
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        setFormError('Photo size exceeds 10MB limit.');
+        return;
+      }
+      setFormError(null);
+      setPhotoMime(file.type);
+      const reader = new FileReader();
+      reader.onload = (uploadEvent) => {
+        const base64 = uploadEvent.target?.result as string;
+        setPhotoUrl(base64);
+        setAiResult(null);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   // Browser Geolocation
@@ -401,12 +427,26 @@ export const ReportIssuePage: React.FC = () => {
           </div>
 
           {!photoUrl ? (
-            <label className="border-2 border-dashed border-slate-700 hover:border-cyan-500 rounded-2xl p-8 flex flex-col items-center justify-center gap-3 text-center cursor-pointer transition bg-slate-950/40 group">
+            <label
+              onDragOver={(e) => {
+                e.preventDefault();
+                setIsDragging(true);
+              }}
+              onDragLeave={() => setIsDragging(false)}
+              onDrop={handleDrop}
+              className={`border-2 border-dashed rounded-2xl p-8 flex flex-col items-center justify-center gap-3 text-center cursor-pointer transition ${
+                isDragging
+                  ? 'border-cyan-400 bg-cyan-950/40 ring-2 ring-cyan-500/50'
+                  : 'border-slate-700 hover:border-cyan-500 bg-slate-950/40'
+              } group`}
+            >
               <div className="w-14 h-14 rounded-2xl bg-slate-800 group-hover:bg-cyan-500/10 group-hover:text-cyan-400 text-slate-400 flex items-center justify-center transition">
                 <Upload className="w-7 h-7" />
               </div>
               <div>
-                <p className="text-sm font-bold text-white">Click to upload photo evidence</p>
+                <p className="text-sm font-bold text-white">
+                  {isDragging ? 'Drop genuine photograph here' : 'Click or Drag & Drop photo evidence'}
+                </p>
                 <p className="text-xs text-slate-400 mt-1">JPEG, PNG, or WebP up to 10MB</p>
               </div>
               <input
@@ -491,7 +531,7 @@ export const ReportIssuePage: React.FC = () => {
                       <span>AI Triage Diagnosis Result</span>
                     </span>
                     <span
-                      className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${
+                      className={`text-[11px] font-semibold px-2 py-0.5 rounded-md ${
                         aiResult.isDemoMode
                           ? 'bg-amber-950/80 text-amber-300 border border-amber-800/60'
                           : 'bg-emerald-950/80 text-emerald-300 border border-emerald-800/60'

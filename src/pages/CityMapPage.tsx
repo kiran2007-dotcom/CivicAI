@@ -238,7 +238,7 @@ export const CityMapPage: React.FC = () => {
                   {selectedPin.id}
                 </span>
                 <span
-                  className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
+                  className={`px-2.5 py-0.5 rounded-md text-xs font-bold ${
                     selectedPin.status === 'Resolved'
                       ? 'bg-emerald-950 text-emerald-300 border border-emerald-800'
                       : 'bg-amber-950 text-amber-300 border border-amber-800'

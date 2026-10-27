@@ -146,14 +146,14 @@ export const ComplaintDetailsPage: React.FC = () => {
                 {complaint.id}
               </span>
               <span
-                className={`px-3 py-1 rounded-full text-xs font-bold border ${getStatusBadge(
+                className={`px-3 py-1 rounded-md text-xs font-bold border ${getStatusBadge(
                   complaint.status
                 )}`}
               >
                 {complaint.status}
               </span>
               <span
-                className={`px-3 py-1 rounded-full text-xs border ${getPriorityBadge(
+                className={`px-3 py-1 rounded-md text-xs border ${getPriorityBadge(
                   complaint.priority
                 )}`}
               >
@@ -212,8 +212,13 @@ export const ComplaintDetailsPage: React.FC = () => {
               <div className="rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 max-h-72">
                 <img
                   src={complaint.photoUrl}
-                  alt={complaint.category}
+                  alt={`Real photo evidence of ${complaint.category} defect at ${complaint.location.address}`}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800';
+                  }}
                 />
               </div>
             </div>
@@ -253,7 +258,7 @@ export const ComplaintDetailsPage: React.FC = () => {
                     <Sparkles className="w-4 h-4 text-cyan-400" />
                     <span>AI Vision Triage Record</span>
                   </span>
-                  <span className="text-[10px] text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded-full border border-cyan-800/60">
+                  <span className="text-[10px] text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded-md border border-cyan-800/60">
                     {complaint.aiAnalysis.confidence}% Diagnostic Confidence
                   </span>
                 </div>

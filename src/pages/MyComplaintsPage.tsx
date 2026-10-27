@@ -166,7 +166,7 @@ export const MyComplaintsPage: React.FC = () => {
             <button
               key={pill.id}
               onClick={() => setSelectedStatus(pill.id)}
-              className={`px-3 py-1 rounded-full text-xs font-semibold shrink-0 transition cursor-pointer ${
+              className={`px-3 py-1 rounded-md text-xs font-semibold shrink-0 transition cursor-pointer ${
                 selectedStatus === pill.id
                   ? 'bg-cyan-500 text-slate-950 font-bold shadow'
                   : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
@@ -217,14 +217,14 @@ export const MyComplaintsPage: React.FC = () => {
                   <div className="flex flex-wrap items-center gap-2 mb-1">
                     <span className="font-mono text-xs font-bold text-cyan-400">{c.id}</span>
                     <span
-                      className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold border ${getStatusBadge(
+                      className={`px-2.5 py-0.5 rounded-md text-[10px] font-semibold border ${getStatusBadge(
                         c.status
                       )}`}
                     >
                       {c.status}
                     </span>
                     <span
-                      className={`px-2.5 py-0.5 rounded-full text-[10px] border ${getPriorityBadge(
+                      className={`px-2.5 py-0.5 rounded-md text-[10px] border ${getPriorityBadge(
                         c.priority
                       )}`}
                     >
@@ -261,7 +261,7 @@ export const MyComplaintsPage: React.FC = () => {
                 <span className="text-xs text-cyan-400 font-bold group-hover:underline">
                   View Timeline & Details
                 </span>
-                <div className="w-8 h-8 rounded-full bg-slate-800 group-hover:bg-cyan-500 group-hover:text-slate-950 text-slate-400 flex items-center justify-center transition">
+                <div className="w-8 h-8 rounded-lg bg-slate-800 group-hover:bg-cyan-500 group-hover:text-slate-950 text-slate-400 flex items-center justify-center transition">
                   <ChevronRight className="w-4 h-4" />
                 </div>
               </div>

@@ -243,7 +243,7 @@ export const AnalyticsPage: React.FC = () => {
                   </td>
                   <td className="py-3 px-4 text-right">
                     <span
-                      className={`px-2.5 py-0.5 rounded-full font-bold ${
+                      className={`px-2.5 py-0.5 rounded-md font-bold ${
                         d.rate >= 50
                           ? 'bg-emerald-950 text-emerald-300 border border-emerald-800'
                           : 'bg-amber-950 text-amber-300 border border-amber-800'

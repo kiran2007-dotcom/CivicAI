@@ -94,6 +94,43 @@
   ],
   "complaints": [
     {
+      "id": "CIV-2026-28759E",
+      "citizenId": "user-citizen-test",
+      "citizenName": "Automated QA Citizen",
+      "citizenEmail": "qa@citizen.test",
+      "category": "Pothole",
+      "description": "Severe crater on 80ft Road Koramangala verified by integration test",
+      "photoUrl": "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800",
+      "location": {
+        "address": "80 Feet Road, Koramangala 4th Block, Bengaluru",
+        "lat": 12.9344,
+        "lng": 77.6271,
+        "zone": "South Zone"
+      },
+      "priority": "High",
+      "department": "Road Maintenance",
+      "status": "Resolved",
+      "createdAt": "2026-10-22T02:27:12.915Z",
+      "updatedAt": "2026-10-22T02:27:12.956Z",
+      "assignedWorkerId": "user-worker-01",
+      "assignedWorkerName": "Ramesh Gowda",
+      "assignedAt": "2026-10-22T02:27:12.936Z",
+      "officerNotes": "Dispatched crew for cold mix patch.",
+      "completionEvidence": {
+        "photoUrl": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800",
+        "notes": "Asphalt compacted and leveled. Hazard cleared.",
+        "completedAt": "2026-10-22T02:27:12.945Z",
+        "workerName": "Ramesh Gowda"
+      },
+      "resolvedAt": "2026-10-22T02:27:12.949Z",
+      "feedback": {
+        "rating": 5,
+        "comment": "Prompt fix within 24 hours. Excellent work!",
+        "submittedAt": "2026-10-22T02:27:12.956Z",
+        "citizenName": "Automated QA Citizen"
+      }
+    },
+    {
       "id": "CIV-2026-9AB025",
       "citizenId": "user-citizen-01",
       "citizenName": "Kiran Manjunath",
@@ -290,9 +327,114 @@
       "timestamp": "2026-10-20T16:24:58.792Z",
       "actorName": "Inspector Rajesh Verma",
       "actorRole": "officer"
+    },
+    {
+      "id": "evt-1792636032915-nxa1",
+      "complaintId": "CIV-2026-28759E",
+      "status": "Submitted",
+      "title": "Complaint Registered",
+      "description": "Civic issue registered with ID #CIV-2026-28759E. Priority: High.",
+      "timestamp": "2026-10-22T02:27:12.915Z",
+      "actorName": "Automated QA Citizen",
+      "actorRole": "citizen"
+    },
+    {
+      "id": "evt-1792636032936-70qd",
+      "complaintId": "CIV-2026-28759E",
+      "status": "Assigned",
+      "title": "Status updated to Assigned",
+      "description": "Action recorded by Inspector Rajesh Verma (OFFICER).",
+      "timestamp": "2026-10-22T02:27:12.936Z",
+      "actorName": "Inspector Rajesh Verma",
+      "actorRole": "officer"
+    },
+    {
+      "id": "evt-1792636032942-uxka",
+      "complaintId": "CIV-2026-28759E",
+      "status": "In Progress",
+      "title": "Work Commenced",
+      "description": "Worker barricaded site.",
+      "timestamp": "2026-10-22T02:27:12.942Z",
+      "actorName": "Ramesh Gowda",
+      "actorRole": "worker"
+    },
+    {
+      "id": "evt-1792636032949-yoou",
+      "complaintId": "CIV-2026-28759E",
+      "status": "Resolved",
+      "title": "Status updated to Resolved",
+      "description": "Action recorded by Ramesh Gowda (WORKER).",
+      "timestamp": "2026-10-22T02:27:12.949Z",
+      "actorName": "Ramesh Gowda",
+      "actorRole": "worker"
+    },
+    {
+      "id": "evt-fb-1792636032956",
+      "complaintId": "CIV-2026-28759E",
+      "status": "Resolved",
+      "title": "Citizen Feedback Recorded",
+      "description": "Citizen rated resolution 5/5 stars: \"Prompt fix within 24 hours. Excellent work!\".",
+      "timestamp": "2026-10-22T02:27:12.956Z",
+      "actorName": "Automated QA Citizen",
+      "actorRole": "citizen"
     }
   ],
   "notifications": [
+    {
+      "userId": "user-citizen-test",
+      "userRole": "citizen",
+      "complaintId": "CIV-2026-28759E",
+      "title": "Complaint #CIV-2026-28759E Milestone: Resolved",
+      "message": "Your ticket has transitioned to Resolved.",
+      "type": "success",
+      "id": "notif-1792636032949-bqz3",
+      "createdAt": "2026-10-22T02:27:12.949Z",
+      "isRead": false
+    },
+    {
+      "userId": "user-citizen-test",
+      "userRole": "citizen",
+      "complaintId": "CIV-2026-28759E",
+      "title": "Complaint #CIV-2026-28759E Milestone: In Progress",
+      "message": "Worker barricaded site.",
+      "type": "info",
+      "id": "notif-1792636032942-xvkf",
+      "createdAt": "2026-10-22T02:27:12.942Z",
+      "isRead": false
+    },
+    {
+      "userId": "user-citizen-test",
+      "userRole": "citizen",
+      "complaintId": "CIV-2026-28759E",
+      "title": "Complaint #CIV-2026-28759E Milestone: Assigned",
+      "message": "Your ticket has transitioned to Assigned.",
+      "type": "info",
+      "id": "notif-1792636032937-mhvo",
+      "createdAt": "2026-10-22T02:27:12.937Z",
+      "isRead": false
+    },
+    {
+      "userId": "user-officer-01",
+      "userRole": "officer",
+      "complaintId": "CIV-2026-28759E",
+      "title": "New Incident Report: #CIV-2026-28759E",
+      "message": "New High priority Pothole reported at 80 Feet Road, Koramangala 4th Block, Bengaluru.",
+      "type": "info",
+      "id": "notif-1792636032915-66up",
+      "createdAt": "2026-10-22T02:27:12.915Z",
+      "isRead": false
+    },
+    {
+      "userId": "user-citizen-test",
+      "userRole": "citizen",
+      "complaintId": "CIV-2026-28759E",
+      "title": "Complaint Registered Successfully",
+      "message": "Your report #CIV-2026-28759E (Pothole) has been filed and routed to Road Maintenance.",
+      "type": "success",
+      "id": "notif-1792636032915-ahjh",
+      "createdAt": "2026-10-22T02:27:12.915Z",
+      "isRead": false
+    },
     {
       "userId": "user-citizen-01",
       "userRole": "citizen",
@@ -372,6 +514,77 @@
     }
   ],
   "auditLogs": [
+    {
+      "userId": "user-citizen-test",
+      "userRole": "citizen",
+      "action": "FEEDBACK_SUBMITTED",
+      "entityType": "complaint",
+      "entityId": "CIV-2026-28759E",
+      "details": {
+        "rating": 5
+      },
+      "id": "audit-1792636032957-qx57",
+      "timestamp": "2026-10-22T02:27:12.957Z"
+    },
+    {
+      "userId": "anonymous",
+      "userRole": "worker",
+      "action": "COMPLAINT_UPDATED",
+      "entityType": "complaint",
+      "entityId": "CIV-2026-28759E",
+      "details": {
+        "status": "Resolved",
+        "completionEvidence": {
+          "photoUrl": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800",
+          "notes": "Asphalt compacted and leveled. Hazard cleared.",
+          "completedAt": "2026-10-22T02:27:12.945Z",
+          "workerName": "Ramesh Gowda"
+        }
+      },
+      "id": "audit-1792636032950-at6r",
+      "timestamp": "2026-10-22T02:27:12.950Z"
+    },
+    {
+      "userId": "anonymous",
+      "userRole": "worker",
+      "action": "COMPLAINT_UPDATED",
+      "entityType": "complaint",
+      "entityId": "CIV-2026-28759E",
+      "details": {
+        "status": "In Progress"
+      },
+      "id": "audit-1792636032942-ceo1",
+      "timestamp": "2026-10-22T02:27:12.942Z"
+    },
+    {
+      "userId": "anonymous",
+      "userRole": "officer",
+      "action": "COMPLAINT_UPDATED",
+      "entityType": "complaint",
+      "entityId": "CIV-2026-28759E",
+      "details": {
+        "status": "Assigned",
+        "assignedWorkerId": "user-worker-01",
+        "assignedWorkerName": "Ramesh Gowda",
+        "assignedAt": "2026-10-22T02:27:12.936Z",
+        "officerNotes": "Dispatched crew for cold mix patch."
+      },
+      "id": "audit-1792636032937-xvpq",
+      "timestamp": "2026-10-22T02:27:12.937Z"
+    },
+    {
+      "userId": "user-citizen-test",
+      "userRole": "citizen",
+      "action": "COMPLAINT_CREATED",
+      "entityType": "complaint",
+      "entityId": "CIV-2026-28759E",
+      "details": {
+        "category": "Pothole",
+        "priority": "High"
+      },
+      "id": "audit-1792636032916-scn1",
+      "timestamp": "2026-10-22T02:27:12.916Z"
+    },
     {
       "userId": "anonymous",
       "userRole": "officer",

@@ -258,14 +258,14 @@ export const CitizenDashboard: React.FC<{ onOpenChat?: () => void }> = ({ onOpen
                       <div className="flex flex-wrap items-center gap-2 mb-1">
                         <span className="font-mono text-xs font-bold text-cyan-400">{c.id}</span>
                         <span
-                          className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border ${getStatusBadge(
+                          className={`px-2 py-0.5 rounded-md text-[10px] font-semibold border ${getStatusBadge(
                             c.status
                           )}`}
                         >
                           {c.status}
                         </span>
                         <span
-                          className={`px-2 py-0.5 rounded-full text-[10px] border ${getPriorityBadge(
+                          className={`px-2 py-0.5 rounded-md text-[10px] border ${getPriorityBadge(
                             c.priority
                           )}`}
                         >
@@ -290,7 +290,7 @@ export const CitizenDashboard: React.FC<{ onOpenChat?: () => void }> = ({ onOpen
 
                   <div className="flex items-center justify-between sm:justify-end gap-3 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-800">
                     <span className="text-xs font-semibold text-slate-400 sm:hidden">Track Status</span>
-                    <div className="w-8 h-8 rounded-full bg-slate-800 group-hover:bg-cyan-500 group-hover:text-slate-950 text-slate-400 flex items-center justify-center transition">
+                    <div className="w-8 h-8 rounded-lg bg-slate-800 group-hover:bg-cyan-500 group-hover:text-slate-950 text-slate-400 flex items-center justify-center transition">
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>

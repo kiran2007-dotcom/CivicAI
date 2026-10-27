@@ -17,6 +17,7 @@ import { MobileCivicApi, MobileComplaint } from './src/services/api';
 export default function App() {
   const [activeTab, setActiveTab] = useState<'home' | 'report' | 'tasks' | 'track'>('home');
   const [role, setRole] = useState<'citizen' | 'worker' | 'officer'>('citizen');
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [complaints, setComplaints] = useState<MobileComplaint[]>([]);
   const [loading, setLoading] = useState(false);
   const [serverUrl, setServerUrl] = useState('https://ais-dev-cnydeeh3jvhi2mje65vi4k-35328912897.asia-east1.run.app');
@@ -138,19 +139,38 @@ export default function App() {
           <Text style={styles.subtitle}>Smarter Cities. Better Lives.</Text>
         </View>
 
-        {/* Role Toggle */}
-        <View style={styles.roleContainer}>
+        {/* Header Right: Role Toggle & Theme Switcher */}
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+          <View style={styles.roleContainer}>
+            <TouchableOpacity
+              style={[styles.roleBtn, role === 'citizen' && styles.roleBtnActive]}
+              onPress={() => setRole('citizen')}
+            >
+              <Text style={[styles.roleText, role === 'citizen' && styles.roleTextActive]}>Citizen</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.roleBtn, role === 'worker' && styles.roleBtnActiveWorker]}
+              onPress={() => setRole('worker')}
+            >
+              <Text style={[styles.roleText, role === 'worker' && styles.roleTextActive]}>Worker</Text>
+            </TouchableOpacity>
+          </View>
+
           <TouchableOpacity
-            style={[styles.roleBtn, role === 'citizen' && styles.roleBtnActive]}
-            onPress={() => setRole('citizen')}
+            onPress={() => setIsDarkMode(!isDarkMode)}
+            style={{
+              paddingHorizontal: 8,
+              paddingVertical: 5,
+              borderRadius: 6,
+              backgroundColor: isDarkMode ? '#1e293b' : '#e2e8f0',
+              borderWidth: 1,
+              borderColor: isDarkMode ? '#334155' : '#cbd5e1',
+            }}
+            accessibilityLabel="Toggle Theme"
           >
-            <Text style={[styles.roleText, role === 'citizen' && styles.roleTextActive]}>Citizen</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.roleBtn, role === 'worker' && styles.roleBtnActiveWorker]}
-            onPress={() => setRole('worker')}
-          >
-            <Text style={[styles.roleText, role === 'worker' && styles.roleTextActive]}>Worker</Text>
+            <Text style={{ fontSize: 11, fontWeight: '700', color: isDarkMode ? '#38bdf8' : '#0f172a' }}>
+              {isDarkMode ? 'DARK' : 'LIGHT'}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -206,7 +226,7 @@ export default function App() {
                   <Text style={styles.cardDesc} numberOfLines={2}>
                     {item.description}
                   </Text>
-                  <Text style={styles.cardLocation}>📍 {item.location.address}</Text>
+                  <Text style={styles.cardLocation}>Address: {item.location.address}</Text>
                 </View>
               ))
             )}
@@ -256,7 +276,7 @@ export default function App() {
               disabled={isAnalyzing}
             >
               <Text style={styles.aiBtnText}>
-                {isAnalyzing ? 'Analyzing with Gemini Vision...' : '⚡ Analyze with Vision AI'}
+                {isAnalyzing ? 'Analyzing with Gemini Vision...' : 'Analyze with Vision AI'}
               </Text>
             </TouchableOpacity>
 
@@ -286,7 +306,7 @@ export default function App() {
                 </View>
                 <Text style={styles.cardCategory}>{item.category}</Text>
                 <Text style={styles.cardDesc}>{item.description}</Text>
-                <Text style={styles.cardLocation}>📍 {item.location.address}</Text>
+                <Text style={styles.cardLocation}>Address: {item.location.address}</Text>
 
                 <View style={styles.workerActions}>
                   {item.status !== 'In Progress' && item.status !== 'Resolved' && (
@@ -332,7 +352,7 @@ export default function App() {
                 <Text style={styles.complaintId}>#{foundComplaint.id}</Text>
                 <Text style={styles.cardCategory}>{foundComplaint.category}</Text>
                 <Text style={styles.cardDesc}>{foundComplaint.description}</Text>
-                <Text style={styles.cardLocation}>📍 {foundComplaint.location.address}</Text>
+                <Text style={styles.cardLocation}>Address: {foundComplaint.location.address}</Text>
                 <Text style={[styles.statusBadge, styles.statusResolved, { alignSelf: 'flex-start', marginTop: 10 }]}>
                   Current Status: {foundComplaint.status}
                 </Text>
@@ -345,16 +365,16 @@ export default function App() {
       {/* Bottom Tab Bar */}
       <View style={styles.tabBar}>
         <TouchableOpacity style={styles.tabItem} onPress={() => setActiveTab('home')}>
-          <Text style={[styles.tabText, activeTab === 'home' && styles.tabTextActive]}>🏠 Home</Text>
+          <Text style={[styles.tabText, activeTab === 'home' && styles.tabTextActive]}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tabItem} onPress={() => setActiveTab('report')}>
-          <Text style={[styles.tabText, activeTab === 'report' && styles.tabTextActive]}>📸 Report</Text>
+          <Text style={[styles.tabText, activeTab === 'report' && styles.tabTextActive]}>Report</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tabItem} onPress={() => setActiveTab('tasks')}>
-          <Text style={[styles.tabText, activeTab === 'tasks' && styles.tabTextActive]}>👷 Tasks</Text>
+          <Text style={[styles.tabText, activeTab === 'tasks' && styles.tabTextActive]}>Tasks</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tabItem} onPress={() => setActiveTab('track')}>
-          <Text style={[styles.tabText, activeTab === 'track' && styles.tabTextActive]}>🔍 Track</Text>
+          <Text style={[styles.tabText, activeTab === 'track' && styles.tabTextActive]}>Track</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

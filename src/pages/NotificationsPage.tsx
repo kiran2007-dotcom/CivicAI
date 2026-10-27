@@ -53,7 +53,7 @@ export const NotificationsPage: React.FC = () => {
               <span>Civic Notifications</span>
             </h1>
             {unreadNotificationCount > 0 && (
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-500 text-white">
+              <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-rose-500 text-white">
                 {unreadNotificationCount} New
               </span>
             )}

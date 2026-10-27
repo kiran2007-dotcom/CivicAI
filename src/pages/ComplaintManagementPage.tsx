@@ -359,7 +359,7 @@ export const ComplaintManagementPage: React.FC = () => {
                   </td>
                   <td className="py-3 px-4 whitespace-nowrap">
                     <span
-                      className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border ${getStatusBadge(
+                      className={`px-2 py-0.5 rounded-md text-[10px] font-semibold border ${getStatusBadge(
                         c.status
                       )}`}
                     >
@@ -368,7 +368,7 @@ export const ComplaintManagementPage: React.FC = () => {
                   </td>
                   <td className="py-3 px-4 whitespace-nowrap">
                     <span
-                      className={`px-2 py-0.5 rounded-full text-[10px] border ${getPriorityBadge(
+                      className={`px-2 py-0.5 rounded-md text-[10px] border ${getPriorityBadge(
                         c.priority
                       )}`}
                     >
@@ -411,7 +411,7 @@ export const ComplaintManagementPage: React.FC = () => {
                   {selectedComplaint.id}
                 </span>
                 <span
-                  className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border ${getStatusBadge(
+                  className={`px-2 py-0.5 rounded-md text-[10px] font-semibold border ${getStatusBadge(
                     selectedComplaint.status
                   )}`}
                 >
@@ -468,7 +468,7 @@ export const ComplaintManagementPage: React.FC = () => {
                   <span className="font-bold text-slate-300">Incident Details:</span>
                   <p className="text-slate-400">{selectedComplaint.description}</p>
                   <p className="text-slate-500 font-mono text-[10px]">
-                    📍 {selectedComplaint.location.address}
+                    Location: {selectedComplaint.location.address}
                   </p>
                 </div>
               )}

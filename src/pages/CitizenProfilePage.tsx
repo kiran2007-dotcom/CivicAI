@@ -42,7 +42,7 @@ export const CitizenProfilePage: React.FC = () => {
               <h1 className="text-2xl sm:text-3xl font-extrabold text-white">
                 {currentUser.name}
               </h1>
-              <span className="px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-cyan-950 text-cyan-300 border border-cyan-800">
+              <span className="px-3 py-0.5 rounded-md text-xs font-bold uppercase tracking-wider bg-cyan-950 text-cyan-300 border border-cyan-800">
                 {currentUser.role}
               </span>
             </div>
@@ -122,11 +122,11 @@ export const CitizenProfilePage: React.FC = () => {
         </div>
       </div>
 
-      {/* Persona Switcher for Hackathon Judges */}
+      {/* Role Switcher for Authorized Personnel */}
       <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-7 shadow-xl space-y-4">
-        <h2 className="text-base font-bold text-white">Test Alternate Personas</h2>
+        <h2 className="text-base font-bold text-white">Authorized Role Simulator</h2>
         <p className="text-xs text-slate-400">
-          Switch roles to experience how Government Officers and Field Workers receive and resolve complaints:
+          Switch roles to verify how municipal officers and field technicians triage and resolve grievances:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
           <button

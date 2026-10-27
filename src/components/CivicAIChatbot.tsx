@@ -21,7 +21,7 @@ export const CivicAIChatbot: React.FC<{ isOpen: boolean; onClose: () => void }> 
       id: 'welcome',
       role: 'assistant',
       content:
-        '👋 Welcome to **CivicAI Assistant**! I can guide you through reporting municipal issues, explain department routings, or look up your active complaint status by ID (e.g., `CIV-2026-RD4812`). What can I help you with today?',
+        'Welcome to the **CivicAI Assistant**. I can guide you through reporting municipal infrastructure defects, explain department routings, or look up your active complaint status by ID (e.g., `CIV-2026-RD4812`). How may I assist you today?',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
@@ -107,43 +107,43 @@ export const CivicAIChatbot: React.FC<{ isOpen: boolean; onClose: () => void }> 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 w-full sm:w-[420px] max-w-[calc(100vw-2rem)] h-[580px] max-h-[85vh] bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200">
+    <div className="fixed bottom-4 right-4 z-50 w-full sm:w-[420px] max-w-[calc(100vw-2rem)] h-[580px] max-h-[85vh] bg-slate-900 border border-slate-700 rounded-xl shadow-xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-150">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-900 via-slate-900 to-cyan-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+      <div className="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center">
-            <Bot className="w-5 h-5 text-cyan-400" />
+          <div className="w-8 h-8 rounded-md bg-sky-950 border border-sky-800 flex items-center justify-center">
+            <Bot className="w-4 h-4 text-sky-400" />
           </div>
           <div>
             <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
-              CivicAI Assistant
-              <span className="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+              Civic Assistant
+              <span className="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-sky-950 text-sky-300 border border-sky-800">
                 Civic Triage
               </span>
             </h3>
-            <p className="text-[11px] text-slate-300">Live Municipal Intelligence</p>
+            <p className="text-[11px] text-slate-400">Municipal Guidance Agent</p>
           </div>
         </div>
         <button
           onClick={onClose}
-          className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer"
+          className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
       </div>
 
       {/* Messages Scroll Area */}
-      <div className="flex-1 p-4 overflow-y-auto space-y-3.5 bg-slate-950/60 text-sm">
+      <div className="flex-1 p-4 overflow-y-auto space-y-3.5 bg-slate-950 text-sm">
         {messages.map((msg) => (
           <div
             key={msg.id}
             className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}
           >
             <div
-              className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs sm:text-sm leading-relaxed shadow-sm ${
+              className={`max-w-[85%] rounded-lg px-3.5 py-2.5 text-xs sm:text-sm leading-relaxed ${
                 msg.role === 'user'
-                  ? 'bg-blue-600 text-white rounded-br-xs'
-                  : 'bg-slate-800 border border-slate-700/80 text-slate-200 rounded-bl-xs'
+                  ? 'bg-sky-700 text-white'
+                  : 'bg-slate-800 border border-slate-700 text-slate-200'
               }`}
             >
               <div className="whitespace-pre-line">{msg.content}</div>
@@ -159,23 +159,23 @@ export const CivicAIChatbot: React.FC<{ isOpen: boolean; onClose: () => void }> 
           </div>
         ))}
         {isLoading && (
-          <div className="flex items-center gap-2 p-3 bg-slate-800/60 rounded-xl max-w-[70%] border border-slate-700/60 text-xs text-slate-300">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse delay-100"></span>
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse delay-200"></span>
+          <div className="flex items-center gap-2 p-3 bg-slate-800 rounded-lg max-w-[70%] border border-slate-700 text-xs text-slate-300">
+            <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse delay-100"></span>
+            <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse delay-200"></span>
             <span className="ml-1 text-slate-400">Consulting civic directory...</span>
           </div>
         )}
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Quick Replies */}
+      {/* Quick Replies - Rectangular rounded-md, not pill */}
       <div className="px-3 py-2 bg-slate-900 border-t border-slate-800 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
         {quickReplies.map((qr) => (
           <button
             key={qr}
             onClick={() => handleSend(qr)}
-            className="shrink-0 text-xs px-2.5 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-800/40 hover:border-cyan-600 transition cursor-pointer"
+            className="shrink-0 text-xs px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 hover:border-sky-500 transition cursor-pointer"
           >
             {qr}
           </button>
@@ -196,18 +196,18 @@ export const CivicAIChatbot: React.FC<{ isOpen: boolean; onClose: () => void }> 
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask about a problem, routing, or complaint ID..."
-            className="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="flex-1 bg-slate-950 border border-slate-700 rounded-md px-3.5 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
           />
           <button
             type="submit"
             disabled={!input.trim() || isLoading}
-            className="p-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:opacity-40 disabled:cursor-not-allowed text-slate-950 font-bold transition cursor-pointer shadow-md shadow-cyan-500/20"
+            className="p-2.5 rounded-md bg-sky-700 hover:bg-sky-800 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold transition cursor-pointer"
           >
             <Send className="w-4 h-4" />
           </button>
         </form>
         <p className="text-[10px] text-slate-500 text-center mt-1.5">
-          CivicAI Assistant references active complaints. No official phone promises are simulated.
+          CivicAI Assistant references active complaints in the municipal registry.
         </p>
       </div>
     </div>

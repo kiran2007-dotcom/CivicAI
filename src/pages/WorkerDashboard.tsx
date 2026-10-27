@@ -159,13 +159,13 @@ export const WorkerDashboard: React.FC = () => {
                         {task.id}
                       </span>
                       <span
-                        className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                        className={`px-2 py-0.5 rounded-md text-[10px] font-bold ${
                           task.status === 'Assigned'
                             ? 'bg-amber-950 text-amber-300 border border-amber-800'
                             : task.status === 'In Progress'
                             ? 'bg-cyan-950 text-cyan-300 border border-cyan-800'
                             : task.status === 'Awaiting Verification'
-                            ? 'bg-purple-950 text-purple-300 border border-purple-800'
+                            ? 'bg-blue-950 text-blue-300 border border-blue-800'
                             : 'bg-emerald-950 text-emerald-300 border border-emerald-800'
                         }`}
                       >
@@ -174,7 +174,7 @@ export const WorkerDashboard: React.FC = () => {
                     </div>
 
                     <span
-                      className={`px-2 py-0.5 rounded-full text-[10px] border ${getPriorityBadge(
+                      className={`px-2 py-0.5 rounded-md text-[10px] border ${getPriorityBadge(
                         task.priority
                       )}`}
                     >

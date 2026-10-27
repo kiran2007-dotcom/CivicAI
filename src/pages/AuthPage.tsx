@@ -110,10 +110,10 @@ export const AuthPage: React.FC = () => {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-lg">
-        {/* Hackathon Quick-Login Cards */}
+        {/* Staging & Verified Profile Quick-Logins */}
         <div className="mb-6 bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-xl">
           <p className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> 1-Click Hackathon Demo Logins:
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> Preconfigured Municipal Role Profiles:
           </p>
           <div className="grid grid-cols-3 gap-2">
             <button

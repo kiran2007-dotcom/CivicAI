@@ -79,23 +79,23 @@ export const OfficerDashboard: React.FC = () => {
 
       {/* Awaiting Officer Verification Banner */}
       {awaitingVerification.length > 0 && (
-        <div className="bg-gradient-to-r from-purple-950/80 via-slate-900 to-purple-950/80 border border-purple-500/40 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
+        <div className="bg-slate-900 border border-blue-500/40 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
           <div className="flex items-center gap-3.5">
-            <div className="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400 shrink-0">
-              <CheckCircle className="w-5 h-5 text-purple-400" />
+            <div className="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400 shrink-0">
+              <CheckCircle className="w-5 h-5 text-blue-400" />
             </div>
             <div>
               <h3 className="text-sm font-bold text-white">
                 {awaitingVerification.length} Task(s) Awaiting Final Officer Verification
               </h3>
               <p className="text-xs text-slate-300 mt-0.5">
-                Field technicians have submitted photographic completion proof. Inspect and close tickets to trigger citizen feedback!
+                Field technicians have submitted photographic completion proof. Inspect and close tickets to trigger citizen feedback.
               </p>
             </div>
           </div>
           <Link
             to="/officer/management?status=Awaiting%20Verification"
-            className="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs transition cursor-pointer shrink-0"
+            className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition cursor-pointer shrink-0"
           >
             Inspect Evidence ({awaitingVerification.length})
           </Link>
@@ -181,11 +181,11 @@ export const OfficerDashboard: React.FC = () => {
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-1">
                         <span className="font-mono text-xs font-bold text-cyan-400">{c.id}</span>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+                        <span className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-800 text-slate-300 border border-slate-700">
                           {c.status}
                         </span>
                         <span
-                          className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                          className={`px-2 py-0.5 rounded-md text-[10px] font-bold ${
                             c.priority === 'Urgent'
                               ? 'bg-rose-950 text-rose-300 border border-rose-800'
                               : 'bg-orange-950 text-orange-300 border border-orange-800'
@@ -201,7 +201,7 @@ export const OfficerDashboard: React.FC = () => {
                         {c.category}: {c.description}
                       </h4>
                       <p className="text-xs text-slate-400 mt-1 line-clamp-1">
-                        📍 {c.location.address}
+                        {c.location.address}
                       </p>
                     </div>
                   </div>
